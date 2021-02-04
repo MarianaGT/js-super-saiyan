@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tagged templates</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-image: linear-gradient(217deg, rgba(250,177,194,.8), rgba(254,232,95,0) 70.71%),
+                    linear-gradient(127deg, rgba(254,232,95,.8), rgba(0,255,0,0) 70.71%),
+                    linear-gradient(336deg, rgba(72,197,219,.8), rgba(0,0,0,0) 70.71%);
+      font-family: Helvetica, sans-serif;
+      font-size: 2em;
+    }
+    strong {
+      border: 1px solid black;
+      padding: 0 0.2em;
+    }
+  </style>
 </head>
 <body>
 <!--   <p>El trabajo duro supera al talento natural</p> -->
@@ -20,7 +37,7 @@
         //2nda solución PRO:
         newContent += `${string} ${strong}`
       })
-      return newContent
+      return `<p>${newContent}</p>`
     }
 
     //llamar a la función mediante el DOM que modifica el html
