@@ -10,10 +10,10 @@
   <script>
     /*1er parámetro es un array de strings y 2ndo parámetro son
     todos los valores subsecuentes */
-    function taggedTemplate(strings, ...dinamycValues) {
-      console.log(strings)
+    function taggedTemplate(strings, ...dynamicValues) {
+      console.log(strings, dynamicValues)
     }
-    taggedTemplate ``
+    taggedTemplate `hola ${'mundo'} ${'!'}`
   </script>
 </body>
 
