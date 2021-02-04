@@ -11,7 +11,13 @@
     /*1er parámetro es un array de strings y 2ndo parámetro son
     todos los valores subsecuentes */
     function taggedTemplate(strings, ...dynamicValues) {
-      console.log(strings, dynamicValues)
+      //hay que separar y recomponer la frase con los nuevos atributos
+      let newContent = ''
+      strings.forEach((string, index) => {
+        const strong = `<strong>${dynamicValues[index]}<strong>`
+        newContent = newContent + string + strong
+      })
+      console.log(newContent)
     }
 
     taggedTemplate `El ${'trabajo duro'} supera al ${'talento natural'}`
