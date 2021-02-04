@@ -14,16 +14,20 @@
       //hay que separar y recomponer la frase con los nuevos atributos
       let newContent = ''
       strings.forEach((string, index) => {
-        const strong = dynamicValues[index] ? `<strong>${dynamicValues[index]}<strong>` : ''
+        const strong = dynamicValues[index] ? `<strong>${dynamicValues[index]}</strong>` : ''
         //1er solución:
         // newContent = newContent + string + strong
         //2nda solución PRO:
         newContent += `${string} ${strong}`
       })
-      console.log(newContent)
+      return newContent
     }
 
-    taggedTemplate `El ${'trabajo duro'} supera al ${'talento natural'}`
+    //llamar a la función mediante el DOM que modifica el html
+    const message = taggedTemplate `El ${'trabajo duro'} supera al ${'talento natural'}`
+
+    document.body.innerHTML = message
+
   </script>
 </body>
 
