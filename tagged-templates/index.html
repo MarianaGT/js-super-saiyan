@@ -6,14 +6,15 @@
   <title>Tagged templates</title>
 </head>
 <body>
-  <p>El trabajo suro supera al talento natural</p>
+<!--   <p>El trabajo duro supera al talento natural</p> -->
   <script>
     /*1er parámetro es un array de strings y 2ndo parámetro son
     todos los valores subsecuentes */
     function taggedTemplate(strings, ...dynamicValues) {
       console.log(strings, dynamicValues)
     }
-    taggedTemplate `hola ${'mundo'} ${'!'}`
+
+    taggedTemplate `El ${'trabajo duro'} supera al ${'talento natural'}`
   </script>
 </body>
 
