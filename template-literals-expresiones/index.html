@@ -13,6 +13,9 @@
     console.log(`Mi nombre es ${(function name() {return 'Zoe'}) ()}`)
     console.log(`Mi nombre es ${(function () {return 'Tito'}) ()}`)
     console.log(`Mi nombre es ${(() => {return 'Pepe arrow'}) ()}`)
+    console.log(`Mi nombre es ${(true && 'Lencha true')}`)
+    console.log(`Mi nombre es ${(false ? 'Lencha true' : 'Lencha false')}`)
+    console.log(`Mi nombre es ${['a', 'b'].map(letra => `${letra}-surname`)}`)
   </script>
 </body>
 </html>
