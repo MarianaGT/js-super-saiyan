@@ -14,7 +14,12 @@
       return function (props) {
         //generar una copia del array de strings inicial para modificarlos
         let newContent = strings.slice()
-        return 'valor'
+        console.log(newContent)
+        //unir los valores dinámicos a los strings partidos
+        dynamicValues.forEach((value, index) => {
+          newContent[index] += 'ola'
+        })
+        return newContent.join('')
       }
     }
 
