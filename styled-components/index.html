@@ -6,6 +6,13 @@
   <title>Styled components</title>
 </head>
 <body>
+  <script>
+    //component será un string y container un elemento del DOM
+    function render (component, container) {
+      container.innerHTML = component
+    }
 
+    render('hola, mundo!', document.body)
+  </script>
 </body>
 </html>
