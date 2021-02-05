@@ -42,7 +42,11 @@
     /*para crear styled components se asigna un style específico referenciando a
     cada una de las keys del objeto de styled*/
     const TitleStyled = styled.h1`
-      color: red;
+      color: gray;
+      font-family: system-ui;
+      font-size: 30px;
+      text-shadow: 2px 2px 0 black;
+      line-height: 100vh;
     `
 
     //las propiedades que se pasan a los components
@@ -51,7 +55,7 @@
       name: 'Eleonor'
     }
 
-    const Title = component` --- ${'message'} --- ${'name'}`(props)
+    const Title = component` ! ${'message'} >>> ${'name'}`(props)
 
     //component será un string y container un elemento del DOM
     function render (component, container) {
