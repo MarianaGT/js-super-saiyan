@@ -6,13 +6,22 @@
   <title>Styled components</title>
 </head>
 <body>
+<!--   cuando hay un elemento dentro del DOM por defecto se crea en window y usa el id del elemento
+ -->  <div id="container"></div>
   <script>
+    //darle un cuerpo al component
+    function component(strings, ...dynamicValues) {
+      return 'valor'
+    }
+
+    const user = component``
+
     //component será un string y container un elemento del DOM
     function render (component, container) {
       container.innerHTML = component
     }
 
-    render('hola, mundo!', document.body)
+    render(user, window.container)
   </script>
 </body>
 </html>
