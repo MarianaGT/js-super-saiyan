@@ -24,7 +24,7 @@
     }
 
   // Solución #2 con dynamic tags
-  const tags = [ 'h1', 'h2', 'p', 'div', 'strong']
+  const tags = [ 'h1', 'p', 'strong', 'em']
 
   const styled = {}
 
@@ -56,8 +56,6 @@
     //   div: '',
     // }
 
-
-
     /*para crear styled components se asigna un style específico referenciando a
     cada una de las keys del objeto de styled*/
     const TitleStyled = styled.h1`
@@ -65,30 +63,46 @@
       font-family: system-ui;
       font-size: 30px;
       text-shadow: 2px 2px 0 black;
-      line-height: 30vh;
     `
-
     const BodyStyled = styled.p`
-      color: blue;
+      color: pink;
       font-family: Helvetica;
       font-size: 15px;
+    `
+    const BoldStyled = styled.strong`
+      color: pink;
+      font-weight: bold;
+    `
+    const CaptionStyled = styled.em`
+      color: orange;
+      font-size: 12px;
       letter-spacing: 2em;
+      text-transform: uppercase;
     `
 
     //las propiedades que se pasan a los components
     const props = {
-      message: 'No te rindas',
-      name: 'Eleonor'
+      title: 'El día de hoy',
+      phrase: 'No te rindas',
+      name: 'Eleonor',
+      caption: 'jamás',
     }
 
-    const Phrase = component` <marquee> ${'message'} ${'name'} </marquee>`(props)
+    const Title = component`${'title'}`(props)
+    const Phrase = component`${'phrase'}`(props)
+    const Name = component`${'name'}`(props)
+    const Caption = component`${'caption'}`(props)
+    // tag de antaño pero gracioso <marquee>moves</marquee>
+
     //component será un string y container un elemento del DOM
     function render (component, container) {
       container.innerHTML = component
     }
 
-    render(TitleStyled(Phrase), window.container)
-    // render(BodyStyled(Phrase), window.container)
+    render(TitleStyled(Title), window.container)
+    render(BodyStyled(Phrase), window.container)
+    render(BoldStyled(Name), window.container)
+    render(CaptionStyled(Caption), window.container)
   </script>
 </body>
 </html>
