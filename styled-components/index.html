@@ -26,11 +26,14 @@
     // los estilos son un objeto con key/value pairs cuyos values son functions
     const styled = {
       h1: function(styles) {
-        return `
+        //para pasar un valor dinámico en el contenido del tag hay que retornar otra function
+        return function(content) {
+          return `
           <h1 style='${styles}'>
-            hola mundo
+            ${content}
           </h1>
         `
+        }
       },
       h2: '',
       div: '',
@@ -48,14 +51,14 @@
       name: 'Eleonor'
     }
 
-    const user = component` --- ${'message'} --- ${'name'}`(props)
+    const Title = component` --- ${'message'} --- ${'name'}`(props)
 
     //component será un string y container un elemento del DOM
     function render (component, container) {
       container.innerHTML = component
     }
 
-    render(TitleStyled, window.container)
+    render(TitleStyled(Title), window.container)
   </script>
 </body>
 </html>
