@@ -17,7 +17,7 @@
         console.log(newContent)
         //unir los valores dinámicos a los strings partidos
         dynamicValues.forEach((value, index) => {
-          newContent[index] += 'ola'
+          newContent[index] += props[value]
         })
         return newContent.join('')
       }
@@ -26,9 +26,10 @@
     //las propiedades que se pasan a los components
     const props = {
       message: 'No te rindas',
+      name: 'Eleonor'
     }
 
-    const user = component` --- ${'message'} ---`(props)
+    const user = component` --- ${'message'} --- ${'name'}`(props)
 
     //component será un string y container un elemento del DOM
     function render (component, container) {
