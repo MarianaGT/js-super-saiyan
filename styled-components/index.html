@@ -11,10 +11,17 @@
   <script>
     //darle un cuerpo al component
     function component(strings, ...dynamicValues) {
-      return 'valor'
+      return function (props) {
+        return 'valor'
+      }
     }
 
-    const user = component``
+    //las propiedades que se pasan a los components
+    const props = {
+      message: 'No te rindas',
+    }
+
+    const user = component` --- ${'message'} ---`(props)
 
     //component será un string y container un elemento del DOM
     function render (component, container) {
