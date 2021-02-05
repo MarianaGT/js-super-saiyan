@@ -12,6 +12,8 @@
     //darle un cuerpo al component
     function component(strings, ...dynamicValues) {
       return function (props) {
+        //generar una copia del array de strings inicial para modificarlos
+        let newContent = strings.slice()
         return 'valor'
       }
     }
