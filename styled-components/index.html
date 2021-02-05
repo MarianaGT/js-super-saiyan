@@ -23,21 +23,40 @@
       }
     }
 
-    // los estilos son un objeto con key/value pairs cuyos values son functions
-    const styled = {
-      h1: function(styles) {
-        //para pasar un valor dinámico en el contenido del tag hay que retornar otra function
-        return function(content) {
-          return `
-          <h1 style='${styles}'>
-            ${content}
-          </h1>
-        `
-        }
-      },
-      h2: '',
-      div: '',
+  // Solución #2 con dynamic tags
+  const tags = [ 'h1', 'h2', 'p', 'div', 'strong']
+
+  const styled = {}
+
+  tags.forEach((tag, index) => {
+    styled[tag] = function(styles) {
+      return function(content) {
+        return `
+        <${tag} style='${styles}'>
+          ${content}
+        </${tag}>
+      `
+      }
     }
+  })
+    // Solución #1
+    // los estilos son un objeto con key/value pairs cuyos values son functions
+    // const styled = {
+    //   h1: function(styles) {
+    //     //para pasar un valor dinámico en el contenido del tag hay que retornar otra function
+    //     return function(content) {
+    //       return `
+    //       <h1 style='${styles}'>
+    //         ${content}
+    //       </h1>
+    //     `
+    //     }
+    //   },
+    //   h2: '',
+    //   div: '',
+    // }
+
+
 
     /*para crear styled components se asigna un style específico referenciando a
     cada una de las keys del objeto de styled*/
@@ -46,7 +65,14 @@
       font-family: system-ui;
       font-size: 30px;
       text-shadow: 2px 2px 0 black;
-      line-height: 100vh;
+      line-height: 30vh;
+    `
+
+    const BodyStyled = styled.p`
+      color: blue;
+      font-family: Helvetica;
+      font-size: 15px;
+      letter-spacing: 2em;
     `
 
     //las propiedades que se pasan a los components
@@ -55,14 +81,14 @@
       name: 'Eleonor'
     }
 
-    const Title = component` <marquee> ${'message'} </marquee> ${'name'}`(props)
-
+    const Phrase = component` <marquee> ${'message'} ${'name'} </marquee>`(props)
     //component será un string y container un elemento del DOM
     function render (component, container) {
       container.innerHTML = component
     }
 
-    render(TitleStyled(Title), window.container)
+    render(TitleStyled(Phrase), window.container)
+    // render(BodyStyled(Phrase), window.container)
   </script>
 </body>
 </html>
