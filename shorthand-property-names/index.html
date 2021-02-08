@@ -57,6 +57,9 @@
       },
       // getPrice: function() {} es lo mismo que:
       getPrice() {
+      },
+      //generador de descuentos:
+      *discount(offer) {
 
       }
     }
@@ -72,6 +75,12 @@
     /*para buscar en el DOM id's con guión se aplica ésta sintaxis, si no, marca error.
     Otra particularidad de un getter -finalPrice()- es que se escribe sin los paréntesis: */
     window['final-price'].textContent = macbook.finalPrice
+
+    //generador
+    const makeAnOffer = macbook.discount(15)
+    window['make-offer'].addEventListener('click', () => {
+      console.log(makeAnOffer)
+    })
   </script>
 </body>
 
