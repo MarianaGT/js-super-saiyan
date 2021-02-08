@@ -48,6 +48,9 @@
     const price = 2700
     const macbook = {
       price,
+      get finalPrice() {
+        return this.price * 1.16
+      },
       //con un setter hacemos el precio de la oferta dinámico
       set offer(offer) {
         this.price -= offer
@@ -65,6 +68,10 @@
 
     // 2nda solución con setter. Si el precio de la oferta cambia, también cambia esta operación:
     window.offer.textContent = macbook.price
+
+    /*para buscar en el DOM id's con guión se aplica ésta sintaxis, si no, marca error.
+    Otra particularidad de un getter -finalPrice()- es que se escribe sin los paréntesis: */
+    window['final-price'].textContent = macbook.finalPrice
   </script>
 </body>
 
