@@ -48,6 +48,10 @@
     const price = 2700
     const macbook = {
       price,
+      //con un setter hacemos el precio de la oferta dinámico
+      set offer(offer) {
+        this.price -= offer
+      },
       // getPrice: function() {} es lo mismo que:
       getPrice() {
 
@@ -55,10 +59,12 @@
     }
 
     window.price.textContent = macbook.price
-    macbook.offer = 500
+    macbook.offer = 600
+    /* 1er solución sin setter en el object macbook:
+    window.offer.textContent = macbook.price - macbook.offer */
 
-    // 1er solución para oferta:
-    window.offer.textContent = macbook.price - macbook.offer
+    // 2nda solución con setter. Si el precio de la oferta cambia, también cambia esta operación:
+    window.offer.textContent = macbook.price
   </script>
 </body>
 
