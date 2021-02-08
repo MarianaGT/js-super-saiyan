@@ -83,7 +83,6 @@
     //generador
     const makeAnOffer = macbook.discount(15)
     window['make-offer'].addEventListener('click', () => {
-      console.log(makeAnOffer.next())
       window['final-price'].textContent = makeAnOffer.next().value
     })
   </script>
