@@ -7,16 +7,24 @@
 </head>
 <body>
   <script>
+    // este es el corazón de redux
 
     const createStore = (reducer, initialState) => {
-      const getState = () => {
+      // estado actual de la aplicación, pero que puede cambiar
+      let state = initialState
+      let updater = () => {}
 
+      const getState = () => state
+
+      //el estado es modificado por dispatch, parámetro una acción que interactúa con el reducer
+      const dispatch = (action) => {
+        state = reducer(state, action)
+        updater()
       }
-      const dispatch = () => {
 
-      }
-      const subscribe = () => {
-
+      // se ejecuta cuando hay un cambio para señalar que algo se actualizó
+      const subscribe = (listener) => {
+        updater = listener
       }
       return {
         getState,
@@ -26,10 +34,20 @@
     }
 
     //reducer evalúa qué está pasando en el estado
+    const reducer = (state, action) => {
+      return action
+    }
+
     const store = createStore(reducer, "estado inicial de la aplicación")
     // store.dispatch()
     // store.getState()
     // store.subscribe()
+
+    store.subscribe(() => {
+      console.log("ha cambiado algo en el store", store.getState())
+    })
+    store.dispatch("voy a cambiar algo")
+
   </script>
 </body>
 
